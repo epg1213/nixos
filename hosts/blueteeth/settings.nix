@@ -10,5 +10,5 @@
   ];
 
   # other settings ...
-  networking.hostName = "blueteeth"; # Define your hostname.
+#  networking.hostName = "blueteeth"; # Define your hostname.
 }
