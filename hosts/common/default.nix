@@ -64,12 +64,22 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "26.05"; # Did you read the comment?
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 30d";
+    };
+    optimise.automatic = true;
+  };
+
+  system = {
+    autoUpgrade = {
+      enable = true;
+      allowReboot = true;
+    };
+    stateVersion = "26.05"; # don't touch this
+  };
 
 }
 

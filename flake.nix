@@ -9,26 +9,12 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.blueteeth = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
-      modules = [
-        # shared between both machines
-        ./configuration.nix
-
-        # device-specific
-        ./hosts/blueteeth/settings.nix
-        ./hosts/blueteeth/hardware.nix
-      ];
+      modules = [./hosts/blueteeth];
     };
     
     nixosConfigurations.blueeye = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
-      modules = [
-        # shared between both machines
-        ./configuration.nix
-
-        # device-specific
-        ./hosts/blueeye/settings.nix
-        ./hosts/blueeye/hardware.nix
-      ];
+      modules = [./hosts/blueeye];
     };
   };
 }
