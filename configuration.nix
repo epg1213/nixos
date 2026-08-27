@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+#      ./hardware-configuration.nix
     ];
   nixpkgs.config.allowUnfree = true;
   networking.hostName = "blueteeth"; # Define your hostname.
@@ -52,6 +52,7 @@
     git
     ghostty
     kitty
+    tree
   ];
 
   # Locales
