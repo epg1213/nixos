@@ -10,5 +10,5 @@
   ];
 
   # other settings ...
+  networking.hostName = "blueeye"; # Define your hostname.
 }
-

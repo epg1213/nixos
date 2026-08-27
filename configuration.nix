@@ -10,7 +10,6 @@
 #      ./hardware-configuration.nix
     ];
   nixpkgs.config.allowUnfree = true;
-  networking.hostName = "blueteeth"; # Define your hostname.
 
   networking.wireless.iwd = {
     enable = true;
