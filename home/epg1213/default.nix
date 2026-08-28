@@ -12,10 +12,19 @@
     shellAliases = {
       btw = "echo i use nixos btw";
     };
-    bashrcExtra = "eval $(ssh-agent) && ssh-add ~/.ssh/github";
+  };
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    settings."github.com" = {
+      HostName = "github.com";
+      User = "git";
+      IdentityFile = "~/.ssh/github";
+    };
   };
   home.packages = with pkgs; [
     brightnessctl
     hyprpaper
+    bat
   ];
 }
