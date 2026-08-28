@@ -1,14 +1,22 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "24.11";
-  home.packages = [ pkgs.python311 ];
+  imports = [./hyprland];
+  
+  programs.home-manager.enable = true;
+  home.stateVersion = "26.05";
+  home.username = "epg1213";
+  home.homeDirectory = "/home/epg1213";
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      btw = "echo i use nixos btw";
+    };
+  };
+  home.packages = with pkgs; [
+    brightnessctl
+    waybar
+    hyprpaper
+  ];
+#  home.file.".config/hypr/hyprland.lua".source = ./dotfiles/hypr/hyprland.lua;
 }
