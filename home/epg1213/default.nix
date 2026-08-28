@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [./hyprland];
+  imports = [./hyprland ./ghostty.nix];
   
   programs.home-manager.enable = true;
   home.stateVersion = "26.05";
