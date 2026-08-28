@@ -10,9 +10,12 @@ programs.waybar.settings = {
     position = "top";
     height = 30;
     modules-center = [
-      "hyprland/workspaces"
+      "clock"
       #other (no comma)
     ];
+    clock = {
+      format-alt = "{:%a, %d. %b  %H:%M}";
+    };
   };
   bottopBar = {
     layer = "top";
@@ -22,22 +25,37 @@ programs.waybar.settings = {
       "hyprland/workspaces"
       #other (no comma)
     ];
+    "hyprland/workspaces" = {
+      "format" = "{name} {windows}";
+      "format-window-separator" = " ";
+      "window-rewrite-default" = "";
+      "window-rewrite" = {
+        "class<com.mitchellh.ghostty>" = "";
+        "class<com.mitchellh.ghostty> title<nvim .*>" = "";
+        "class<firefox>" = "";
+        "class<discord>" = "";
+      };
+    };
+
   };
   rightBar = {
     layer = "top";
     position = "right";
     width = 30;
     modules-center = [
-      "hyprland/workspaces"
+      "battery"
       #other (no comma)
     ];
+    battery = {
+      format = "{icon}\n{capacity}%";
+      format-icons = ["" "" "" "" ""];
+    };
   };
   leftBar = {
     layer = "top";
     position = "left";
     width = 30;
     modules-center = [
-      "hyprland/workspaces"
       #other (no comma)
     ];
   };
