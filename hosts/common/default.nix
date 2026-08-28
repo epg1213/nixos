@@ -10,9 +10,9 @@
 #      ./hardware-configuration.nix
     ];
   nixpkgs.config.allowUnfree = true;
-fonts.packages = with pkgs; [
-  font-awesome_4
-];
+  fonts.packages = with pkgs; [
+    font-awesome
+  ];
   networking.wireless.iwd = {
     enable = true;
     settings = {

@@ -9,6 +9,9 @@
     };
 
   config = {
+    animations = {
+      enabled = false;
+    };
     input = {
       kb_layout = "fr";
       touchpad = {
