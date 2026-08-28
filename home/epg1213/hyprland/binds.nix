@@ -12,6 +12,9 @@
     {_args = ["SUPER + F"
     (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"firefox\")")];}
 
+    {_args = ["SUPER + D"
+    (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"discord\")")];}
+
     {_args = ["SUPER + mouse:272"
     (lib.generators.mkLuaInline "hl.dsp.window.drag()")
     { mouse = true; }];}
