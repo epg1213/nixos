@@ -12,6 +12,7 @@
     shellAliases = {
       btw = "echo i use nixos btw";
     };
+    bashrcExtra = "eval $(ssh-agent) && ssh-add ~/.ssh/github";
   };
   home.packages = with pkgs; [
     brightnessctl
