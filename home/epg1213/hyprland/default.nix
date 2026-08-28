@@ -1,7 +1,7 @@
 # ./hosts/blueeye/settings.nix
 { config, pkgs, lib, ... }:
 {
-  imports = [./binds.nix ./waybar.nix];
+  imports = [./binds.nix ./waybar.nix ./hyprpaper.nix];
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     mod = {
