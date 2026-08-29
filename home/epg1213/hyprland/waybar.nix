@@ -66,6 +66,7 @@ programs.waybar.style = ''
     border: none;
     border-radius: 0;
     font-family: Source Code Pro;
+    color: #00d7ff;
   }
   window#waybar {
     background: transparent;

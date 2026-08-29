@@ -19,7 +19,7 @@
       };
     };   
     general = {
-      col = { active_border = "#00b7ef"; };
+      col = { active_border = "#00d7ff"; };
       gaps_in = 5;
       gaps_out = 2;
       border_size = 2;

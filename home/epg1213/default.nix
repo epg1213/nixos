@@ -12,6 +12,9 @@
     shellAliases = {
       btw = "echo i use nixos btw";
     };
+    initExtra = ''
+      PS1="\n\[\033[38;5;45m\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\$\[\033[0m\] "
+    '';
   };
   programs.ssh = {
     enable = true;
