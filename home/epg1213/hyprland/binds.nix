@@ -3,6 +3,9 @@
 {
   wayland.windowManager.hyprland.settings.bind = [
 
+    {_args = ["SUPER + L"
+    (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"hyprlock\")")];}
+
     {_args = ["SUPER + W"
     (lib.generators.mkLuaInline "hl.dsp.window.close()")];}
 

@@ -32,6 +32,7 @@
     # Whether to enable XWayland
     xwayland.enable = true;
   };
+  security.pam.services.hyprlock = {};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.epg1213 = {
