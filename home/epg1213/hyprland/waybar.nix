@@ -32,6 +32,7 @@ programs.waybar.settings = {
       "window-rewrite" = {
         "class<com.mitchellh.ghostty>" = "";
         "class<com.mitchellh.ghostty> title<nvim .*>" = "";
+        "class<com.mitchellh.ghostty> title<hx .*>" = "";
         "class<firefox>" = "";
         "class<discord>" = "";
       };
