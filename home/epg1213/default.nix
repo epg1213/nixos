@@ -26,10 +26,13 @@
     };
   };
   home.packages = with pkgs; [
+    neovim
+    discord
     brightnessctl
     hyprpaper
     bat
     fastfetch
+    cargo
   ];
   dconf.settings = {
     "org/gnome/desktop/interface" = {

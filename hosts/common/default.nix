@@ -40,10 +40,6 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.bash;
     home = "/home/epg1213";
-    packages = with pkgs; [
-      neovim
-      discord
-    ];
     initialPassword = "changeme";
   };
 
