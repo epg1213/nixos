@@ -29,6 +29,7 @@
     brightnessctl
     hyprpaper
     bat
+    fastfetch
   ];
   dconf.settings = {
     "org/gnome/desktop/interface" = {
