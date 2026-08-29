@@ -66,6 +66,7 @@ programs.firefox = {
       "browser.newtabpage.activity-stream.feeds.topSites" = lock-false;
       "browser.newtabpage.activity-stream.feeds.topsites" = lock-false;
       "browser.newtabpage.activity-stream.hideLogo" = lock-true;
+      "browser.toolbars.bookmarks.visibility" = "never";
     };
 
     # Extensions
@@ -82,6 +83,12 @@ programs.firefox = {
 
       "{b1008ed7-506a-468d-b1c8-66712938dbcb}" = {
         install_url       = moz "hyprland-blue";
+        installation_mode = "force_installed";
+        updates_disabled  = true;
+      };
+
+      "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+        install_url       = moz "bitwarden-password-manager";
         installation_mode = "force_installed";
         updates_disabled  = true;
       };
@@ -131,6 +138,7 @@ programs.firefox = {
     force           = true;
     default         = "startpage";
     privateDefault  = "startpage";
+    order = [ "startpage" "ddg" ];
 
     engines = {
       "Nix Packages" = {
