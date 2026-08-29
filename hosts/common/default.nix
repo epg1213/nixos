@@ -40,7 +40,6 @@
     shell = pkgs.bash;
     home = "/home/epg1213";
     packages = with pkgs; [
-      firefox
       neovim
       discord
     ];

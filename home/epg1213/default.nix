@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [./hyprland ./ghostty.nix];
+  imports = [./hyprland ./ghostty.nix ./firefox.nix];
   
   programs.home-manager.enable = true;
   home.stateVersion = "26.05";
@@ -30,4 +30,9 @@
     hyprpaper
     bat
   ];
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 }
