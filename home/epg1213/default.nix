@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [./hyprland ./ghostty.nix ./firefox.nix];
+  imports = [ ./hyprland ./ghostty.nix ./firefox.nix ./helix.nix ];
   
   programs.home-manager.enable = true;
   home.stateVersion = "26.05";
