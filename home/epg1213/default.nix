@@ -32,7 +32,7 @@
     hyprpaper
     bat
     fastfetch
-    cargo
+#    cargo
   ];
   dconf.settings = {
     "org/gnome/desktop/interface" = {
