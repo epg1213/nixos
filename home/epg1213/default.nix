@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./hyprland ./ghostty.nix ./firefox.nix ./helix.nix ];
+  imports = [ ./hyprland ./nixvim ./ghostty.nix ./firefox.nix ];
   
   programs.home-manager.enable = true;
   home.stateVersion = "26.05";
@@ -26,7 +26,7 @@
     };
   };
   home.packages = with pkgs; [
-    neovim
+#    neovim
     discord
     brightnessctl
     hyprpaper
