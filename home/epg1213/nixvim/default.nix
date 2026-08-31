@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  imports = [inputs.nixvim.homeModules.nixvim ./autocompletion.nix ./rust.nix];
+  imports = [inputs.nixvim.homeModules.nixvim ./autocompletion.nix ./rust.nix ./themes.nix];
 
   home.packages = with pkgs; [
     ripgrep
@@ -21,7 +21,7 @@
       relativenumber = true;
     };
 
-    colorschemes.catppuccin.enable = true;
+    #colorschemes.catppuccin.enable = true;
 
     plugins.lualine.enable = true;
     plugins.transparent.enable = true;
