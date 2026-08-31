@@ -1,7 +1,9 @@
-{ pkgs, config, inputs, ... }:
-
 {
-  imports = [ inputs.nixvim.homeModules.nixvim ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.nixvim.homeModules.nixvim ./autocompletion.nix ./rust.nix];
 
   home.packages = with pkgs; [
     ripgrep
@@ -23,30 +25,37 @@
 
     plugins.lualine.enable = true;
     plugins.transparent.enable = true;
-    plugins.treesitter = { enable = true;
+    plugins.treesitter = {
+      enable = true;
       highlight.enable = true;
     };
-    plugins.telescope = { enable = true;
+    plugins.telescope = {
+      enable = true;
       keymaps."<leader>ff" = "find_files";
       keymaps."<leader>fg" = "live_grep";
     };
-    plugins.lsp = { enable = true;
-      servers = {
-        nil_ls.enable = true;
-        rust_analyzer = {
-	  enable = true;
-	  installCargo = true;
-	  installRustc = true;
-	  autostart = true;
-	};
-      };
-    };
 
     keymaps = [
-      { action = "<Esc>:w<cr>"; key = "<C-s>"; mode = ["n" "i"]; }
-      { action = "<Esc>:q<cr>"; key = "<C-x>"; mode = ["n" "i"]; }
-      { action = "<Esc>:q!<cr>"; key = "<C-S-x>"; mode = ["n" "i"]; }
-      { action = "<Esc>"; key = "jj"; mode = ["i"]; }
+      {
+        action = "<Esc>:w<cr>";
+        key = "<C-s>";
+        mode = ["n" "i"];
+      }
+      {
+        action = "<Esc>:q<cr>";
+        key = "<C-x>";
+        mode = ["n" "i"];
+      }
+      {
+        action = "<Esc>:q!<cr>";
+        key = "<C-S-x>";
+        mode = ["n" "i"];
+      }
+      {
+        action = "<Esc>";
+        key = "jj";
+        mode = ["i"];
+      }
     ];
   };
 }

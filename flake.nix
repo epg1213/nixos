@@ -11,6 +11,10 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -31,6 +35,10 @@
             modules = [
 	      { config.networking.hostName = host; }
 	      (./hosts + "/${host}")
+	      ({ pkgs, ... }: {
+                nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+                environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+              })
               inputs.home-manager.nixosModules.default {
                 home-manager = {
                   useGlobalPkgs = true;
