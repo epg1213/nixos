@@ -17,15 +17,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
     lib = inputs.nixpkgs.lib;
     hosts = builtins.filter (x: x != null) (
-      lib.mapAttrsToList (name: value: if (value == "directory") then name else null) (
+      lib.mapAttrsToList (name: value:
+        if (value == "directory")
+        then name
+        else null) (
         builtins.readDir ./hosts
-    ));
-  in
-  {
+      )
+    );
+  in {
     nixosConfigurations = builtins.listToAttrs (
       map (
         host: {
@@ -33,24 +39,27 @@
           value = lib.nixosSystem {
             specialArgs = {inherit inputs;};
             modules = [
-	      { config.networking.hostName = host; }
-	      (./hosts + "/${host}")
-	      ({ pkgs, ... }: {
-                nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
-                environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+              {config.networking.hostName = host;}
+              (./hosts + "/${host}")
+              ({pkgs, ...}: {
+                nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
+                environment.systemPackages = [pkgs.rust-bin.stable.latest.default];
               })
-              inputs.home-manager.nixosModules.default {
+              inputs.home-manager.nixosModules.default
+              {
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs; };
+                  extraSpecialArgs = {inherit inputs;};
                   users.epg1213 = ./home/epg1213;
+                  users.nezumizoe = ./home/nezumizoe;
                 };
-	      }
-	    ];
-	  };
-	}
-      ) hosts
+              }
+            ];
+          };
+        }
+      )
+      hosts
     );
   };
 }

@@ -1,14 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-#      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    #      ./hardware-configuration.nix
+  ];
   nixpkgs.config.allowUnfree = true;
   fonts.packages = with pkgs; [
     font-awesome
@@ -33,23 +35,48 @@
     xwayland.enable = true;
   };
   security.pam.services.hyprlock = {};
+  services.dunst.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.epg1213 = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     shell = pkgs.bash;
     home = "/home/epg1213";
     initialPassword = "changeme";
   };
+  users.users.nezumizoe = {
+    isNormalUser = true;
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    shell = pkgs.bash;
+    home = "/home/nezumizoe";
+    initialPassword = "changeme";
+  };
+  programs.steam = {
+    enable = true; # Master switch, already covered in installation
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+  services.blueman.enable = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    direnv
+    qemu
+    wireguard-tools
+    libnotify
+    acpi
     wget
     git
     ghostty
     kitty
     tree
+    libreoffice-qt
   ];
 
   # Locales
@@ -63,7 +90,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = ["nix-command" "flakes"];
     gc = {
       automatic = true;
       options = "--delete-older-than 30d";
@@ -78,6 +105,4 @@
     };
     stateVersion = "26.05"; # don't touch this
   };
-
 }
-
