@@ -15,6 +15,9 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pwndbg = {
+      url = "github:pwndbg/pwndbg";
+    };
   };
 
   outputs = {

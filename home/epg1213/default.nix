@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -29,15 +30,15 @@
       IdentityFile = "~/.ssh/github";
     };
   };
-  home.packages = with pkgs; [
-    #    neovim
+  home.packages = with pkgs;
+  with inputs; [
     discord
     brightnessctl
     hyprpaper
     bat
     fastfetch
     hyprshot
-    #    cargo
+    pwndbg.packages.${stdenv.hostPlatform.system}.default
   ];
   dconf.settings = {
     "org/gnome/desktop/interface" = {
