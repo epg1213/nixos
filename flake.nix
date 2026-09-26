@@ -18,6 +18,10 @@
     pwndbg = {
       url = "github:pwndbg/pwndbg";
     };
+    curseforge = {
+      url = "github:spitfire05/curseforge-appimage-nix/6682c2df0e02c7a4989dc8ba3635358fb695c136";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

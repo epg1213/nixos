@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -19,14 +20,14 @@
       PS1="\n\[\033[38;5;45m\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\$\[\033[0m\] "
     '';
   };
-  home.packages = with pkgs; [
-    #    neovim
+  home.packages = with pkgs;
+  with inputs; [
     prismlauncher
     discord
     brightnessctl
     hyprpaper
     hyprshot
-    #    cargo
+    curseforge.packages.${stdenv.hostPlatform.system}.default
   ];
   #dconf.settings = {
   #  "org/gnome/desktop/interface" = {

@@ -39,6 +39,7 @@
     fastfetch
     hyprshot
     pwndbg.packages.${stdenv.hostPlatform.system}.default
+    curseforge.packages.${stdenv.hostPlatform.system}.default
   ];
   dconf.settings = {
     "org/gnome/desktop/interface" = {

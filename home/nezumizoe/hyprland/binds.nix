@@ -43,6 +43,13 @@
 
     {
       _args = [
+        "SUPER + C"
+        (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"curseforge\")")
+      ];
+    }
+
+    {
+      _args = [
         "SUPER + D"
         (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"discord\")")
       ];
