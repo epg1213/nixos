@@ -57,6 +57,13 @@
 
     {
       _args = [
+        "SUPER + B"
+        (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"blueman-manager\")")
+      ];
+    }
+
+    {
+      _args = [
         "SUPER + mouse:272"
         (lib.generators.mkLuaInline "hl.dsp.window.drag()")
         {mouse = true;}
