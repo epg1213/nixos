@@ -36,6 +36,7 @@
   };
   security.pam.services.hyprlock = {};
   services.dunst.enable = true;
+  programs.nix-ld.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.epg1213 = {
